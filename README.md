@@ -1,13 +1,5 @@
 # Image Captioning with Transformers (Encoder–Decoder)
 
-## Example Result
-
-| Image | Reference Caption | Model Output |
-|-------|------------------|--------------|
-| <img src="https://github.com/user-attachments/assets/b54cbe50-64b0-43a5-be6c-550d36ce0093" width="250"/> | a male in a white shirt and black shorts playing tennis | a man holding a tennis racket on the tennis court |
-
-
-
 This project implements an **image captioning system** using:
 
 - **ResNet50** (pretrained) as an **encoder** for visual features  
@@ -70,5 +62,18 @@ I include **verified caption generation** that combines **beam search**, **objec
 3. **LM Scoring (DistilGPT-2)**: prefer grammatically fluent captions.  
 4. **Object-Match Scoring**: penalize hallucinated objects.  
 5. **N-gram Repeat Removal**: eliminate repetitive phrases.  
-6. **Final Selection**: best caption chosen via weighted scoring.  
+6. **Final Selection**: best caption chosen via weighted scoring.
 
+---
+
+## Example: Verified Caption Generation Improves Reliability
+
+| Image | Reference Caption | Model Output (Verified) |
+|-------|------------------|--------------------------|
+| <img src="https://github.com/user-attachments/assets/b54cbe50-64b0-43a5-be6c-550d36ce0093" width="250"/> | a male in a white shirt and black shorts playing tennis | a man holding a tennis racket on the tennis court |
+
+---
+**Why this matters:**  
+- Both captions are **plausible and correct**.  
+- Without verification, models may hallucinate objects or produce ungrammatical text.  
+- The verified approach ensures captions remain **accurate, fluent, and grounded in the image**.
